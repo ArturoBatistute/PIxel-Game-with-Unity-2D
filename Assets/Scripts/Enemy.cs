@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health;
+    public float enemyHealth;
 
-    public Animator animator;
+    private Animator animator;
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (health <= 0)
+        if (enemyHealth <= 0)
             EnemyDefeated();
     }
     public void EnemyDefeated()

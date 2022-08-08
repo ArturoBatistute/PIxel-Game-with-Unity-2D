@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3917804109594496769}
   - component: {fileID: 6927548520237053446}
   - component: {fileID: 4659259364795034351}
-  - component: {fileID: 936907852201848609}
   - component: {fileID: 3933035591448058839}
   - component: {fileID: 2529516554990294531}
   - component: {fileID: 4419320530691663557}
+  - component: {fileID: 285491214229839200}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -120,21 +120,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &936907852201848609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116324960962622261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d1b3565915c414aabb022434800506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.05
-  swordAttack: {fileID: 108113469816812788}
 --- !u!50 &3933035591448058839
 Rigidbody2D:
   serializedVersion: 4
@@ -202,6 +187,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &285491214229839200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116324960962622261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802e453822ccff3488ccd35b4d92dfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Viccent the Young
+  moveSpeed: 1
+  collisionOffset: 0.05
+  swordAttack: {fileID: 0}
 --- !u!1 &5369809146479720312
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +212,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140604341633463464}
-  - component: {fileID: 108113469816812788}
   - component: {fileID: 8164474855267257805}
+  - component: {fileID: 3791074219148139105}
   m_Layer: 0
   m_Name: SwordHitBox
   m_TagString: Untagged
@@ -235,19 +236,6 @@ Transform:
   m_Father: {fileID: 3917804109594496769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &108113469816812788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5369809146479720312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecea37419de72db458f77c716e7aae57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordCollider: {fileID: 8164474855267257805}
 --- !u!61 &8164474855267257805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -274,3 +262,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3801136, y: 0.20215097}
   m_EdgeRadius: 0
+--- !u!114 &3791074219148139105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5369809146479720312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f9d994673c51f46b8f1997be23a912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: 
+  swordCollider: {fileID: 0}
+  damage: 10

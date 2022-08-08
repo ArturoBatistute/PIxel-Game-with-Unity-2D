@@ -1,32 +1,34 @@
 using UnityEngine;
 
-public class SwordAttack : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    public Collider2D swordCollider;
+    public string weaponName = "";
+    public float damage;
 
+    private Collider2D weaponCollider;
     private Vector2 playerRightAttackOffset;
-    private float damage = 0.5F;
 
     void Start()
     {
         playerRightAttackOffset = transform.position;
+        weaponCollider = GetComponent<Collider2D>();
     }
 
     public void MoveSwordHitBoxRight()
     {
-        swordCollider.enabled = true;
+        weaponCollider.enabled = true;
         transform.localPosition = playerRightAttackOffset;
     }
 
     public void MoveSwordHitBoxLeft()    
     {
-        swordCollider.enabled = true;
+        weaponCollider.enabled = true;
         transform.localPosition = new Vector3(playerRightAttackOffset.x * -1, playerRightAttackOffset.y);
     }
 
     public void StopAttack()
     {
-        swordCollider.enabled = false;
+        weaponCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D otherObjectWithCollider)
@@ -36,7 +38,7 @@ public class SwordAttack : MonoBehaviour
             Enemy enemy = otherObjectWithCollider.GetComponent<Enemy>();
 
             if (enemy != null)
-                enemy.health -= damage;
+                enemy.enemyHealth -= damage;
         }
     }
 }

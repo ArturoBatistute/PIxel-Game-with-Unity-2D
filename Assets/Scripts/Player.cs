@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    public string playerName = "";
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
-    public SwordAttack swordAttack;
 
     private readonly string moveAnimationParameter = "move";
     private readonly string attackAnimationParameter = "swordAttack";
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementInput;
     private ContactFilter2D movementFilter;
+    private Weapon weaponAttack;
 
     private Rigidbody2D rb;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        weaponAttack = GetComponentInChildren<Weapon>();
     }
 
     void FixedUpdate()
@@ -39,15 +41,15 @@ public class PlayerController : MonoBehaviour
         playerCanMove = false;
 
         if (spriteRenderer.flipX == true)
-            swordAttack.MoveSwordHitBoxLeft();
+            weaponAttack.MoveSwordHitBoxLeft();
         else
-            swordAttack.MoveSwordHitBoxRight();
+            weaponAttack.MoveSwordHitBoxRight();
     }
 
     public void EndSwordAttack()
     {
         UnlockMovement();
-        swordAttack.StopAttack();
+        weaponAttack.StopAttack();
     }
 
     public void UnlockMovement()
